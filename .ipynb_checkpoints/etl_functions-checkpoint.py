@@ -206,3 +206,20 @@ def quality_checks(df, table_name):
     else:
         print(f"Data quality check passed for {table_name} with {total_count:,} records.")
     return 0
+
+
+def quality_checks_key(df, table_name):
+    """Count checks on fact and dimension table to ensure completeness of data.
+
+    :param df: spark dataframe to check counts on
+    :param table_name: corresponding name of table
+    """
+    total_count = df.where(col("record_id").isNull())
+
+    if total_count == 0:
+        print(f"Data quality check failed for {table_name} with zero records!")
+    else:
+        print(f"Data quality check passed for {table_name} with {total_count:,} records.")
+    return 0
+    
+    

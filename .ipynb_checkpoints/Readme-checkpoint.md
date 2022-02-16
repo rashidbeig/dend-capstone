@@ -59,6 +59,8 @@ Document steps necessary to clean the data
 #### 3.1 Conceptual Data Model
     
    ### Database schema
+   
+   We have used Star schema to map the data. The immigration_fact table is the center of this schema that is connected country_dim, usa-demographics_dim and        immigration_calendar_dim dimension tables through foreign keys.This schema with fewer foreign keys helps to query data faster, makes the queries simpler and    helps in high data redundancy.
     
    #### Dimension Tables
     

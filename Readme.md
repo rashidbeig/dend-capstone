@@ -59,6 +59,11 @@ Document steps necessary to clean the data
 #### 3.1 Conceptual Data Model
     
    ### Database schema
+   
+   We have used Star schema to map the data. The immigration_fact table is the center of this schema that is connected country_dim, usa-demographics_dim and        immigration_calendar_dim dimension tables through foreign keys.This schema with fewer foreign keys helps to query data faster, makes the queries simpler and    helps in high data redundancy. By connecting the tables and data in this way we can easily answerer questions like :
+   1. On which dates were the arrivals more from different countries ?
+   2. Which states in USA had more arrivals from a particular country ?
+   3. Which visa types people had in different seasons ?
     
    #### Dimension Tables
     
@@ -68,7 +73,7 @@ Document steps necessary to clean the data
 
     visa_type_dim: has data from immigration datasets and links to the immigaration via the visa_type_key.
     
-    immigration_calendar_dim: 
+    immigration_calendar_dim: custom table that has arrival dates based on particular date and time.
     
    #### Fact Tables
     

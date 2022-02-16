@@ -206,3 +206,50 @@ def quality_checks(df, table_name):
     else:
         print(f"Data quality check passed for {table_name} with {total_count:,} records.")
     return 0
+
+
+def quality_checks_key(df, table_name):
+    """Count checks on fact and dimension table to ensure completeness of data.
+
+    :param df: spark dataframe to check counts on
+    :param table_name: corresponding name of table
+    """
+    rec_count = df.filter(df.record_id.isNull()).count()
+
+    if rec_count >= 1:
+        print(f"Data Quality Failed: Record_Id")
+    else:
+        print(f"Data Quality Passed: Record_Id")
+        
+    crc_count = df.filter(df.country_residence_code.isNull()).count()
+
+    if crc_count >= 1:
+        print(f"Data Quality Failed: country_residence_code")
+    else:
+        print(f"Data Quality Passed: country_residence_code")
+        
+    vtk_count = df.filter(df.visa_type_key.isNull()).count()
+
+    if vtk_count >= 1:
+        print(f"Data Quality Failed: visa_type_key")
+    else:
+        print(f"Data Quality Passed: visa_type_key")
+        
+    sc_count = df.filter(df.state_code.isNull()).count()
+
+    if vtk_count >= 1:
+        print(f"Data Quality Failed: state_code")
+    else:
+        print(f"Data Quality Passed: state_code")
+        
+    ad_count = df.filter(df.arrdate.isNull()).count()
+
+    if vtk_count >= 1:
+        print(f"Data Quality Failed: arrdate")
+    else:
+        print(f"Data Quality Passed: arrdate")
+        
+        
+    return 0
+    
+    
