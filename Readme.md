@@ -9,6 +9,7 @@
     2. etl_functions.py : Code to create fact and dimension tables.
     3. etl.py : Code for data cleaning and visualisation.
     4. config.cfg : AWS Credentials
+    5. Questions.ipynb : Jupyter Notebook that is used to build queries to ask questions 
 
 The project follows the follow steps:
 
